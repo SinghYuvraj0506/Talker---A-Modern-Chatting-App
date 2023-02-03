@@ -1,0 +1,129 @@
+/* Sidebar main container */
+
+.sidebar_conatiner {
+  width: 300px;
+  height: 100vh;
+  background: #ffffff;
+  /* Shadow style for TOP Menu */
+
+  box-shadow: 14.0351px 0px 25px rgba(86, 128, 248, 0.03),
+    35.0877px 0px 70px rgba(86, 128, 248, 0.05),
+    23.8596px 5.61404px 50px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0 20px 0;
+  box-sizing: border-box;
+  position: sticky;
+  left: 0;
+  -webkit-user-select: none;
+}
+
+/* sidebar profile sections */
+
+.sidebar_profile_section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar_profile_section img {
+  width: 95px;
+  height: 95px;
+  border-radius: 150px;
+}
+
+.sidebar_profile_section span {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  line-height: 21px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* sidebar options ------------------------------------------ */
+
+.sidebar_options {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar_options > a {
+  text-decoration: none;
+}
+
+.sidebar_options span:hover {
+  color: #2a8bf2;
+}
+
+.icons_sidebar {
+  margin-right: 20px;
+}
+
+.options_active {
+  color: #2a8bf2;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 17px;
+  line-height: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-left: 6px solid #2a8bf2;
+  padding: 7px 0;
+  width: 100%;
+  padding-left: 43px;
+  box-sizing: border-box;
+}
+
+.options_span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 17px;
+  line-height: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #707c97;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 7px 0;
+  width: 100%;
+  padding-left: 43px;
+  box-sizing: border-box;
+}
+
+.extra_options {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.extra_options > span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 17px;
+  line-height: 19px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #707c97;
+  letter-spacing: 1px;
+  padding: 7px 0;
+  width: 100%;
+  padding-left: 43px;
+  box-sizing: border-box;
+}
+
+.extra_options > span:hover {
+  cursor: pointer;
+  color: #2a8bf2;
+}

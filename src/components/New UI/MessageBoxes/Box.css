@@ -1,0 +1,91 @@
+/* Message box left css */
+
+.message_outside_left_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.message_left_box {
+  background: linear-gradient(90.54deg, #60a9f6 0%, #2a8bf2 100%);
+  box-shadow: 10px 10px 25px rgba(42, 139, 242, 0.1),
+    15px 15px 35px rgba(42, 139, 242, 0.05),
+    10px 10px 50px rgba(42, 139, 242, 0.1);
+  border-radius: 0px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  max-width: 75%;
+  min-width: 25%;
+  color: white;
+}
+
+.message_left_box p {
+  margin: unset;
+  font-size: 16px;
+  line-height: 23px;
+  color: #ffffff;
+}
+
+.message_left_box span {
+  margin: unset;
+  font-size: 11px;
+  line-height: 23px;
+  color: #f8f8f8;
+}
+
+.message_outside_left_container > svg {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* message right box css ---------------------------------------------------------------- */
+
+.message_outside_right_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.message_right_box {
+  background: #ffffff;
+  border: 1px solid rgba(112, 124, 151, 0.25);
+  box-shadow: 10px 10px 25px rgba(112, 124, 151, 0.05),
+    15px 15px 35px rgba(112, 124, 151, 0.05);
+  border-radius: 10px 10px 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  max-width: 75%;
+  min-width: 25%;
+  color: white;
+}
+
+.message_right_box p {
+  margin: unset;
+  font-size: 16px;
+  line-height: 23px;
+  color: #707c97;
+}
+
+.message_right_box span {
+  margin: unset;
+  font-size: 11px;
+  line-height: 23px;
+  color: #707c97;
+}
+
+.message_outside_right_container > svg {
+  margin-right: 10px;
+  cursor: pointer;
+}

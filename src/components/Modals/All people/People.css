@@ -1,0 +1,35 @@
+
+.outside_people_modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #abe0ed42;
+}
+
+
+.people_main_container{
+    width: 500px;
+    height: 600px;
+    padding:20px 13px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: absolute;
+    display: inline;
+    box-shadow: 0px 6px 16px rgb(0 18 72 / 51%);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.friends_list_container{
+    width: 100%;
+    margin: auto;
+    height: 30px;
+    padding: 10px 0;
+    margin: 18px 0;
+    background-color: red;
+}

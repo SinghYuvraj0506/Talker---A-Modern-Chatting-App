@@ -1,0 +1,130 @@
+
+
+.right_section {
+  background: url("https://w0.peakpx.com/wallpaper/920/587/HD-wallpaper-whatsapp-app-fondo-sms-verde-wall-whatsapp.jpg");
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 67vw;
+  /* background: transparent; */
+}
+
+.right_side_header {
+  display: flex;
+  position: sticky;
+  color: white;
+  z-index: 999;
+  top: 0;
+  background-color: rgb(41, 40, 42);
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+.right_side_header i {
+  margin: 0 10px;
+}
+
+.right_profile {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.right_profile_image{
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  margin-right: 10px;
+}
+
+.right_name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.right_side_typer {
+  position: sticky;
+  top: 93vh;
+  width: 100%;
+  background-color: rgb(41, 40, 42);
+  color: white;
+  min-height: 52px;
+  max-height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typer {
+  width: 92%;
+  min-width: 92%;
+  max-width: 92%;
+  height: 52%;
+  min-height: 55%;
+  max-height: 53%;
+  margin: -3px 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.right_side_typer i {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.send_button {
+  position: absolute;
+  right: 39px;
+  color: black;
+  z-index: 10;
+  background-color: white;
+  width: 45px !important;
+  height: 40px !important;
+  border: none;
+  cursor: pointer;
+}
+
+.scrollbar {
+  margin-left: 30px;
+  float: left;
+  height: 83vh;
+  overflow-y: scroll;
+  width: 97%;
+  position: relative;
+  z-index: 99;
+  background: transparent;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+#style-2::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #615d5d;
+}
+
+#style-2::-webkit-scrollbar {
+  width: 12px;
+  background-color: #037c56;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #222020;
+}
+
+
+.emoji_button:hover{
+  color: yellow;
+}

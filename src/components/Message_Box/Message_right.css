@@ -1,0 +1,72 @@
+.outer_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.container_right{
+    margin: 13px 0;
+    display: flex;
+    width: 98%;
+    margin-right: 10px;
+    justify-content: flex-end;
+}
+
+.message_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: beige;
+    max-width: 500px;
+    width: max-content;
+    padding: 2px;
+    z-index: 1;
+    height: max-content;
+    border-radius: 5px;
+}
+
+.container_right .arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: right;
+    top: 0px;
+    right: 0px;
+    transform: rotate(180deg);
+  }
+  
+  .container_right .arrow .outer {
+    width: 0;
+    height: 0;
+    border-right: 0px solid #000000;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .container_right .arrow .inner {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #ffffff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 2px;
+  }
+
+  .message_box:hover .dropdown_menu_button{
+    opacity: 1;
+  }
+  .message_box:hover .message_time{
+    opacity: 0;
+  }
+
+
+
+  
+

@@ -1,0 +1,126 @@
+:root {
+  --bg_color: #29282a;
+}
+
+.left_section {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: 33%;
+  border-right: 3px solid black;
+  color: white;
+  background-color: #0c0a0a !important;
+}
+
+.left_side_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--bg_color);
+  height: max-content;
+}
+
+.left_side_logo {
+  width: 160px;
+  height: 50px;
+  padding: 4px;
+}
+
+.logging_area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logging_image {
+  margin: 0 9px;
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.search_area {
+  display: flex;
+  position: sticky;
+  width: 100%;
+  height: max-content;
+  top: 66px;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0c0a0a;
+}
+
+.search_area input {
+  width: 95%;
+  height: 33px;
+  border-radius: 8px;
+  padding: 3px;
+  margin: 7px 0;
+  margin-left: 10px;
+  background-color: var(--bg_color);
+  color: white;
+  font-size: 15px;
+}
+
+.search_icon {
+  position: relative;
+  right: 7%;
+}
+
+.contact_box {
+  float: left;
+  height: 40%;
+  width: 100%;
+  position: relative;
+}
+
+.scrollbar2 {
+  float: left;
+  height: 580px;
+  width: 100%;
+  background: #0c0a0a;
+  overflow-y: auto;
+  margin-bottom: 25px;
+}
+
+.profile_dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  color: black;
+  left: 379px;
+  top: 68px;
+  margin: 15px;
+  padding: 12px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile_dropdown li {
+  border: 2px solid black;
+  padding: 11px;
+  width: 125px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  background-color: #ffba00;
+  cursor: pointer;
+}
+
+.profile_dropdown li:hover{
+  background-color: white;
+  
+}

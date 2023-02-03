@@ -1,0 +1,16 @@
+
+
+.main_friends_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+
+.friends_01_section_main_container {
+    width: 70%;
+    height: 85vh;
+    background: linear-gradient(180deg, #f3f3fb 0%, #fdfbfd 100%);
+  }
