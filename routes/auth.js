@@ -48,7 +48,7 @@ router.post(
         //profile: req.body.profile,
         email: req.body.email,
         password: secpass,
-        age:req.body.age,
+        age: req.body.age,
         //mobile: req.body.mobile,
       });
 
@@ -138,7 +138,6 @@ router.get("/getuser", fetchUser, async (req, res) => {
   }
 });
 
-
 // ROUTE 4 :- we get any user details from id at /getuserdetail end point.
 router.post("/getuserdetail", async (req, res) => {
   try {
@@ -155,19 +154,54 @@ router.post("/getuserdetail", async (req, res) => {
   }
 });
 
-router.get("/getdetailsforprofile",fetchUser, async (req, res) => {
+// Route 5 :- we get profile details of the user fr the profile popup
+router.get("/getdetailsforprofile", fetchUser, async (req, res) => {
   try {
-    let friends = await Friends.find({user_id:req.user.id}).select({friend_id:1})
-    let messages = await Message.find({sender_id:req.user.id}).select({_id:1})
-    let favorites = await Friends.find({friend_id:req.user.id,isFavorite:true}).select({friend_id:1})
-    if(!friends){
-      friends=[]
+    let friends = await Friends.find({ user_id: req.user.id }).select({
+      friend_id: 1,
+    });
+    let messages = await Message.find({ sender_id: req.user.id }).select({
+      _id: 1,
+    });
+    let favorites = await Friends.find({
+      friend_id: req.user.id,
+      isFavorite: true,
+    }).select({ friend_id: 1 });
+    if (!friends) {
+      friends = [];
     }
-    if(!messages){
-      messages=[]
+    if (!messages) {
+      messages = [];
     }
 
-    return res.json({success:true,data :{friends:friends.length,messages:messages.length,favorites:favorites.length}})
+    return res.json({
+      success: true,
+      data: {
+        friends: friends.length,
+        messages: messages.length,
+        favorites: favorites.length,
+      },
+    });
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).send({ success: false, error: "Some Error Occured" });
+  }
+});
+
+// Route 6 :- get search result from the search bar -----------------------------
+router.get("/searchForFriends", fetchUser, async (req, res) => {
+  try {
+    let friends = [];
+    let users = await User.find({ email: { $regex: req.query.param + "/*" } });
+    let list = await Friends.find({ user_id: req.user.id }).select({
+      friend_id: 1,
+    });
+    list.forEach((element) => {
+      friends.push(element?.friend_id);
+    });
+    
+
+    return res.json({ success: true, users : users.filter((e)=>{return e?._id.toString() !== req.user.id }), friends });
   } catch (error) {
     console.error(error.message);
     res.status(400).send({ success: false, error: "Some Error Occured" });
