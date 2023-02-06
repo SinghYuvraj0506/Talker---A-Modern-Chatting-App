@@ -54,6 +54,26 @@
   color: rgb(75 179 15);
 }
 
+.text_type_06{
+  color: #1f2121b7;
+  font-size: 13px;
+  line-height: 19px;
+  text-transform: lowercase;
+  font-weight: 600;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.text_type_07{
+  color: rgba(101, 100, 100, 0.844);
+  margin: 0 auto;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 /* Chat - 01 css ------------------------------------------------------------------ */
 
 .chat_01_section_main_container {

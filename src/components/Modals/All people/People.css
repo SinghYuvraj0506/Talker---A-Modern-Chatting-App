@@ -8,7 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #abe0ed42;
+    background-color: #bfe8f226;
+    -webkit-user-select: none;
 }
 
 
@@ -28,8 +29,49 @@
 .friends_list_container{
     width: 100%;
     margin: auto;
-    height: 30px;
+    height: 375px;
     padding: 10px 0;
     margin: 18px 0;
-    background-color: red;
+    /* background-color: red; */
+    overflow: auto;
+}
+
+.friend_list_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #b4cbd021;
+    margin: 0 auto;
+    padding: 10px 16px;
+    min-height: 40px;
+    box-sizing: border-box;
+    box-shadow: -1px 2px 6px 0px #8c949538;
+    margin-bottom: 25px;
+}
+
+.friend_list_box:hover{
+    background-color: #b4cbd05c;
+}
+
+.friend_list_box > div{
+    display: flex;
+    align-items: center;
+}
+
+.friend_list_box > div Img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-right: 12px;
+}
+
+
+.friend_list_box > div section p{
+    width: 80%;
+}
+
+.friend_list_box > span > svg{
+    color: #0000007d;;
+    cursor: pointer;
 }

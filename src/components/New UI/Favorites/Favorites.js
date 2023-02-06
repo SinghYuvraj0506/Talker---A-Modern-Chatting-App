@@ -16,7 +16,7 @@ function Favorites() {
 
   const [changeFavorite, setchangeFavorite] = useState(false)
   const dispatch = useDispatch();
-  const { changeCurrentFriend } = bindActionCreators(actionCreators, dispatch);
+  const { changeCurrentFriend,addFrinedsPopup } = bindActionCreators(actionCreators, dispatch);
 
   useEffect(() => {
     getAllFriends().then(() => {});
@@ -40,7 +40,7 @@ function Favorites() {
               {/* <BsChevronDown style={{ marginLeft: "5px", cursor: "pointer" }} /> */}
             </span>
           </div>
-          <button>
+          <button onClick={()=>{addFrinedsPopup(true)}}>
             <IoIosAdd size={30} />
             Add New Friend
           </button>

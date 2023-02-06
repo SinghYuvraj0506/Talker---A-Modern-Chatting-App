@@ -26,9 +26,10 @@ function Main() {
   const messageOptionsState = new useSelector(state=>state.messageOptionsState)   /// gets the value of message options
   const LoadingState = useSelector(state=>state.LoadingState)   /// gets the value of loading
   const ProfileState = useSelector(state=>state.ProfileState)   /// gets the value of profile data
+  const addFriendsPopupState = useSelector(state=>state.addFriendsPopupState)   /// opens the add friends popup
   
   const dispatch= useDispatch()
-  const {changeMessageOptionsState,changeProfileState} = bindActionCreators(actionCreators,dispatch)
+  const {changeMessageOptionsState,changeProfileState,addFrinedsPopup} = bindActionCreators(actionCreators,dispatch)
 
   useEffect(() => {
     if(!cookies.get("auth-token")){
@@ -46,7 +47,7 @@ function Main() {
     <>
     {LoadingState && <Loading1/>}
     <div className="main_box">
-      <People/>
+      <People open={addFriendsPopupState} toClose={()=>{addFrinedsPopup(false)}}/>
     <Profile open={ProfileState?.bool} toClose={()=>{changeProfileState({bool:false})}} user={ProfileState?.user}/>
       <Options open={messageOptionsState?.bool} toClose={()=>{changeMessageOptionsState({bool:false,id:""})}} type={messageOptionsState?.type}/>
       <SideBar />

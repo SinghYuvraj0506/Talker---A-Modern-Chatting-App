@@ -49,3 +49,15 @@ export const onlineFriends = (data) =>{
 
 }
 
+export const addFrinedsPopup = (bool) =>{
+    return (dispatch) =>{
+        dispatch({
+            type:"setAddFriendsPopup",
+            payload:bool
+        })
+    }
+
+}
+
+
+

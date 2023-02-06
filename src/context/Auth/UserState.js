@@ -9,6 +9,9 @@ const UserState = (props) => {
   const cookies = new Cookies();
   const [userData, setuserData] = useState()
 
+  const [SearchUsers, setSearchUsers] = useState([])
+  const [AllFriendsId, setAllFriendsId] = useState([])
+
   //Route - 1------ to create a new user
   const createUser = async (name, age, password, email) => {
     try {
@@ -103,8 +106,33 @@ const UserState = (props) => {
     }
   };
 
+  //Route - 5 ------ get all the fetures to show in the profile of the user
+  const searchUserProfile = async (query) => {
+    try {
+      const response = await fetch(`${host}/api/auth/searchForFriends?param=${query}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+          "auth-token":cookies.get("auth-token")
+        }
+      });
+      const json = await response.json();
+      if(json.success){
+        setSearchUsers(json.users)
+        setAllFriendsId(json.friends)
+      }
+      return json
+    } catch (error) {
+      console.error("Error occured");
+    }
+  };
+
+
+
+
   return (
-    <usercontext.Provider value={{ createUser,loginUser,getUser,getFeaturesOfProfile,userData }}>
+    <usercontext.Provider value={{ createUser,loginUser,getUser,getFeaturesOfProfile,userData,searchUserProfile,SearchUsers,AllFriendsId }}>
       {props.children}
     </usercontext.Provider>
   );

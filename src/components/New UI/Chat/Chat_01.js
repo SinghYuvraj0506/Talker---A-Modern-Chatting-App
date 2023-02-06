@@ -12,7 +12,7 @@ function Chat_01() {
   const { getAllFriends, FriendsData } = useContext(friendcontext);
   const OnlineFriends = useSelector(state=>state.OnlineFriends)
   const dispatch = useDispatch();
-  const { changeCurrentFriend } = bindActionCreators(actionCreators, dispatch);
+  const { changeCurrentFriend,addFrinedsPopup } = bindActionCreators(actionCreators, dispatch);
   const [online, setonline] = useState([])
 
   // get user data using use effect
@@ -40,7 +40,7 @@ function Chat_01() {
             <BsChevronDown style={{ marginLeft: "5px", cursor: "pointer" }} />
           </span>
         </div>
-        <button>
+        <button onClick={()=>{addFrinedsPopup(true)}}>
           <IoIosAdd size={30} />
           Add Friend
         </button>
