@@ -205,4 +205,47 @@ router.get("/getmessage/:id", fetchuser, async (req, res) => {
   }
 });
 
+
+// ROUTE 7: getting recent messages for a user
+router.get("/getRecentMessages", fetchuser, async (req, res) => {
+  let messages = []       // recent messages
+  let messages2=[]      // final messaages with user details
+  let others = []     // array of chats to whom we talked
+
+  let note1 = await Message.find({
+    $or: [
+      { reciever_id: req.user.id },
+      { sender_id: req.user.id },
+    ],
+  }).sort({ created: 'descending' })
+
+
+  for (let i = 0; i < note1.length; i++) {
+    const e = note1[i];
+    if(others.includes(e?.sender_id.toString() === req.user.id ? e?.reciever_id.toString() : e?.sender_id.toString())){
+      continue
+    }
+    else{
+      messages.push(e)
+      others.push(e?.sender_id.toString() === req.user.id ? e?.reciever_id.toString() : e?.sender_id.toString())
+    }
+    
+  }
+
+  for (let i = 0; i < messages.length; i++) {
+    const msg = messages[i];
+    let a = msg?.sender_id.toString() === req.user.id
+    let user = await User.findById(a ? msg?.reciever_id.toString() : msg?.sender_id.toString()).select({profile:1,name:1,LastVisited:1})
+    messages2.push({user,msg,type: a? "sent" : "recieved"})
+  }
+
+
+  try {
+    res.json({ success: true, recents : messages2 });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({success:false,error:"Some error occured"});
+  }
+});
+
 module.exports = router;

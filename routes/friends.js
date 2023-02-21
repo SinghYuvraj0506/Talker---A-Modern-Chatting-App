@@ -45,7 +45,7 @@ router.get("/getfriendlist", fetchUser, async (req, res) => {
   try {
     let list = await Friend.find({ user_id: req.user.id }).populate({
       path: "friend_id",
-      select: ["name", "profile", "tagline", "email"],
+      select: ["name", "profile", "tagline", "email","LastVisited"],
     });
 
     if (!list) {

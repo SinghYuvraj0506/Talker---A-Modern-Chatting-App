@@ -4,6 +4,8 @@ const cors = require("cors");
 const connectToSocket = require("./socket.js");
 const port = 8000;
 
+require("dotenv").config();
+
 connectToMongo();
 const app = express();
 
@@ -20,6 +22,7 @@ connectToSocket()
 app.get("/", (req, res) => {
   res.send("Hello Guys");
 });
+
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/chat", require("./routes/chat"));

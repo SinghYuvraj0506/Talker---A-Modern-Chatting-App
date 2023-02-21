@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const User = require("./models/User");
 const JWT_SECRET = "YuvrajSinghappofmychat";
 
 const fetchuser2 = (token) => {
@@ -20,13 +21,16 @@ const addUser = async (usertoken, socketId) => {
     !onlyUsers.some((user) => user === userId) && onlyUsers.push(userId)
 };
 
-const removeUser = (socketId) => {
+const removeUser = async (socketId) => {
+  let rid = users.find(e=>e.socketId === socketId)
+  await User.findByIdAndUpdate(rid?.userId,{LastVisited:Date.now()})        // it is updating the last visited time of a user upon dissconnection with socket
   users = users.filter((user) => user.socketId !== socketId); // remove the user disconnected
   onlyUsers=[]   // refreshing onlyUsers on dissconnections
   users.forEach(element => {
     onlyUsers.push(element.userId)
   });
 };
+
 
 const getUser = (userId) => {
   return users.find((user) => user.userId === userId);
