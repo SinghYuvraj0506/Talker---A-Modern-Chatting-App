@@ -49,12 +49,12 @@
   margin-bottom: 0px;
 }
 
-.text_type_05{
+.text_type_05 {
   text-transform: capitalize;
   color: rgb(75 179 15);
 }
 
-.text_type_06{
+.text_type_06 {
   color: #1f2121b7;
   font-size: 13px;
   line-height: 19px;
@@ -64,7 +64,7 @@
   margin-bottom: 0px;
 }
 
-.text_type_07{
+.text_type_07 {
   color: rgba(101, 100, 100, 0.844);
   margin: 0 auto;
   display: inline-block;
@@ -296,7 +296,7 @@
   color: rgba(112, 124, 151, 0.5);
 }
 
-.emoji_icon:hover{
+.emoji_icon:hover {
   color: rgb(0, 0, 0);
 }
 
@@ -307,4 +307,55 @@ aside.Emoji_box {
   right: 0;
   border: 2px solid rgb(204, 202, 202);
   border-radius: 8px;
+}
+
+/* Extra gyan section -------------------------------------- */
+
+.extra_gyan_part_01 {
+  text-align: center;
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #707c97;
+  -webkit-user-select: none;
+  margin-top: 100px;
+}
+
+.extra_gyan_part_02{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto 0;
+  -webkit-user-select: none;
+}
+
+.extra_gyan_part_02 > img{
+  width: 150px;
+  margin-bottom: -20px;
+}
+
+.extra_gyan_part_02 h1{
+  font-size: 55px;
+  letter-spacing: 36px;
+  color: rgba(0, 0, 0, 0.821);
+  margin-bottom: 5px;
+}
+
+.extra_gyan_part_02 span{
+  font-weight: 10px;
+  color: rgba(0, 0, 0, 0.763);
+  /* background-color: red; */
+  width: 85%;
+  text-align: right;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.extra_gyan_part_02 p{
+  font-size: 18px;
+  margin-top: 70px;
+  width: 70%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.725);
 }

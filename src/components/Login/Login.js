@@ -81,7 +81,7 @@ function Login() {
         ) {
           loginUser(data.password, data.email).then((e) => {
             if (e.success) {
-              navigate("/")
+              navigate("/chats")
             } else {
               toast.error("Invalid Credentials");
             }

@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Chat.css";
-import { BsChevronDown } from "react-icons/bs";
+import { BsChevronDown , BsArrowDownRight,BsArrowUpRight} from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoIosAdd } from "react-icons/io";
 import { friendcontext } from "../../../context/Auth/FriendState";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../../state/index";
+import MessageContext from "../../../context/messages/messageContext";
 
 function Chat_01() {
   const { getAllFriends, FriendsData } = useContext(friendcontext);
+  const {getRecentMessages,RecentMessages} = useContext(MessageContext)
   const OnlineFriends = useSelector(state=>state.OnlineFriends)
   const dispatch = useDispatch();
   const { changeCurrentFriend,addFrinedsPopup } = bindActionCreators(actionCreators, dispatch);
@@ -18,6 +20,7 @@ function Chat_01() {
   // get user data using use effect
   useEffect(() => {
     getAllFriends().then(() => {});
+    getRecentMessages().then(()=>{})
   }, []);
 
   // fetches online friends ids from redux and then stores it here-----------
@@ -28,6 +31,32 @@ function Chat_01() {
     });
 
   }, [OnlineFriends])
+
+  // calculates the last online time for the user
+  const lastVisitTime = (date) =>{
+    let a = new Date(date)
+    let b = new Date()
+    let dateinMS = Math.abs(b-a)    // difference in MS
+    if(dateinMS > 2592000000){      // 2592000000 it is ms in a month
+      let months = Math.ceil(dateinMS/(1000*60*60*24*30)).toFixed(0)
+      return months.toString() + " months"
+    }
+    else if(dateinMS > 86400000){
+      let days = Math.ceil(dateinMS/(1000*60*60*24)).toFixed(0)
+      return days.toString() + " days"
+    }
+    else if(dateinMS > 3600000){
+      let hours = Math.ceil(dateinMS/(1000*60*60)).toFixed(0)
+      return hours.toString() + " hours"
+    }
+    else if(dateinMS > 60000){
+      let minutes = Math.ceil(dateinMS/(1000*60)).toFixed(0)
+      return minutes.toString() + " minutes"
+    }
+    else{
+      return (dateinMS/1000).toFixed(0).toString() + " seconds"
+    }
+  }
 
 
   return (
@@ -54,30 +83,34 @@ function Chat_01() {
         </span>
       </section>
       <section className="chats_section">
-        {FriendsData?.map((e,i) => {
+        {RecentMessages?.length !== 0 ?
+
+        RecentMessages?.map((e,i) => {
           return (
-            <div className="chats_section_box" key={i} onClick={()=>{changeCurrentFriend({name:e?.friend_id.name,profile:e?.friend_id.profile,id:e?.friend_id._id})}}>
+            <div className="chats_section_box" key={i} onClick={()=>{changeCurrentFriend({name:e?.user.name,profile:e?.user.profile,id:e?.user._id,lastVisit:lastVisitTime(e?.user?.LastVisited),isOnline:online?.includes(e?.user?._id)})}}>
               <section className="about_chat_section">
                 <div>
-                  <img src={e?.friend_id.profile} alt="user" className="about_img" />
+                  <img src={e?.user?.profile} alt="user" className="about_img" />
                   <section>
-                    <span className="text_type_03">{e?.friend_id.name}</span>
-                    <p className={online?.includes(e?.friend_id._id) ? "text_type_04 text_type_05" : "text_type_04"}>{online?.includes(e?.friend_id._id) ?"Online..." : "last online 5 hours ago"}</p>
+                    <span className="text_type_03">{e?.user.name}</span>
+                    <p className={online?.includes(e?.user._id) ? "text_type_04 text_type_05" : "text_type_04"}>{online?.includes(e?.user._id) ?"Online..." : `last online ${lastVisitTime(e?.user?.LastVisited)} ago`}</p>
                   </section>
                 </div>
-                <span className="text_type_02">3 days ago</span>
+                <span className="text_type_02">{lastVisitTime(e?.msg?.created)+ " ago"}</span>
               </section>
               <section className="message_chat_section">
                 <p className="text_type_02">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                  totam eligendi repudiandae neque eum nesciunt cum ut similique
-                  minus officiis.
+                  {e?.type === "recieved" ? <BsArrowDownRight color="red" size={12}/> : <BsArrowUpRight color="green" size={12}/>} &nbsp; {e?.msg?.message.slice(0,35)}...
                 </p>
                 <span>1</span>
               </section>
             </div>
           );
-        })}
+        })
+        
+        : <p className="extra_gyan_part_01">You do not any recent chats<br/> Do checkout any one.<br/><br/> <span style={{fontSize:"30px"}}>👍</span> Good luck by Yuvraj Singh
+        </p>
+      }
       </section>
     </div>
   );

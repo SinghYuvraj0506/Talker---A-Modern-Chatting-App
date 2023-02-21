@@ -60,9 +60,9 @@ function Chat_02() {
     cookies.get("auth-token") &&
       socket.current.emit("addUser", cookies.get("auth-token")); // send auth token of the user in the backend so that it gets stored there for current online users
     socket.current.on("getUsers", (users) => {
-      // here user?.onlyusers is the list of active users by socket io
+      // here user?.onlyusers is the list of active users id by socket io
       //console.log(users?.onlyUsers)
-
+      
       // now we compare the people who are in frined list and are online this time
       onlineFriends(FriendsData.filter((e)=>users?.onlyUsers?.includes(e?.friend_id?._id)))
 
@@ -129,12 +129,14 @@ function Chat_02() {
   return (
     <>
       <div className="chat_02_section_main_container">
+        {mainChat?.name ? 
+        <>
         <div className="chat02_about_section">
           <div>
             <img src={mainChat?.profile} alt="user" className="about_img" />
             <section>
               <span className="text_type_03">{mainChat?.name}</span>
-              <p className="text_type_04">last online 5 hours ago</p>
+              <p className={mainChat?.isOnline ? "text_type_04 text_type_05" : "text_type_04"}>{mainChat?.isOnline ? "Online..." : `last online ${mainChat?.lastVisit} ago`}</p>
             </section>
           </div>
           <section>
@@ -215,6 +217,16 @@ function Chat_02() {
             <IoIosSend size={20} />
           </span>
         </div>
+        </> : 
+
+        <section className="extra_gyan_part_02">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPCphEMn0-zT-NV4UqiyFIAA8o_L6sXn6Bg3EDT7LLjfHXk3aKghlNVSyUB1jVQmAOYa0&usqp=CAU" alt="" />
+          <h1>TALKER</h1>
+          <span>Build and Designed by Yuvraj Singh</span>
+          <p>You have not selected any chat to talk with.</p>
+        </section>
+        
+        }
       </div>
     </>
   );

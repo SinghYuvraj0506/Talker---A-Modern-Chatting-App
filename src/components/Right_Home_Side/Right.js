@@ -88,7 +88,7 @@ function Right() {
         </div>
 
         <div class="scrollbar" id="style-2">
-          {messages.length !== 0 &&
+          {messages?.length !== 0 &&
             messages?.map((message) => {
               let time = Moment(message?.created)
                 .format()
