@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Talker - A MERN and Socket IO Chatting Web App (in Progress)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Talker is a web application built with the MERN stack (MongoDB, Express, React, Node.js) and used Socket-IO that allows users to chat with each other in real-time. This repository contains the source code for both the frontend and the backend of the application.
 
-## Available Scripts
+![Screenshot 2023-03-02 154607](https://user-images.githubusercontent.com/98007961/222409827-a4ea90e4-041f-4eb9-bb7e-91901283e8c6.png)
 
-In the project directory, you can run:
+![Screenshot 2023-03-02 154518](https://user-images.githubusercontent.com/98007961/222409998-162d084e-5e0c-44d3-b3ca-46b15c404aca.png)
 
-### `npm start`
+![Screenshot 2023-03-02 154627](https://user-images.githubusercontent.com/98007961/222410201-5a4ceb5b-26f8-4a9e-b4d3-0927b2a97fdf.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Current Active Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Users can create an account, login, and logout.
+* Users can join and leave chat rooms.
+* Users can send messages to chats and receive messages in real-time.
+* Users can view the list of online friends.
+* Users can view their chat history.
+* A clean UI of the app.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork the repo and then clone the repo from github (Note main branch is frontend and server branch is the backend)
 
-### `npm run eject`
+```bash
+git clone https://github.com/yourusername/talker.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install the npm packages in both the frontend and backend root folders
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm i
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Create a .env file in the backend folder and add the following variables:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```makefile
+DB_URL = <LOCAL DATABASE OR YOUR CLUSTER ADDRESS>
 
-## Learn More
+CLIENT_URL = <YOUR CLIENT RUNNING ADDRESS>
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Create a config.js file in src/config in fronted folder and add the following code:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+export const host = "<YOUR SERVER RUNNING ADDRESS>"
+```
 
-### Code Splitting
+5. Start the server in the root backend folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+node index.js
+```
 
-### Analyzing the Bundle Size
+6. Start the client in root frontend folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run start
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Advices or Helps in the project
 
-### Advanced Configuration
+You are free to advice any better changes or new features in the web app. Since it is not completely built and is in progress and hence many of its features would be live once its completed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
