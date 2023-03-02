@@ -2,14 +2,16 @@ const express = require("express");
 const connectToMongo = require("./db.js");
 const cors = require("cors");
 const connectToSocket = require("./socket.js");
-const port = 8000;
 
 require("dotenv").config();
+const port = process.env.PORT || 8000;
 
 connectToMongo();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin:process.env.CLIENT_URL
+}));
 
 app.use(express.json());
 
