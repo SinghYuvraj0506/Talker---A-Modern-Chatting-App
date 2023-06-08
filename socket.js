@@ -40,7 +40,7 @@ const connectToSocket = () => {
   // connecttng server from client of socket ---------------------
   const io = require("socket.io")(port2, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: process.env.CLIENT_URL,
     },
   });
 
