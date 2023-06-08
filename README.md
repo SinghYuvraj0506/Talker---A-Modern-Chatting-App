@@ -1,5 +1,7 @@
 # Talker - A MERN and Socket IO Chatting Web App (in Progress)
 
+Demo :- https://talker-chat-app.netlify.app/
+
 Talker is a web application built with the MERN stack (MongoDB, Express, React, Node.js) and used Socket-IO that allows users to chat with each other in real-time. This repository contains the source code for both the frontend and the backend of the application.
 
 ![Screenshot 2023-03-02 154607](https://user-images.githubusercontent.com/98007961/222409827-a4ea90e4-041f-4eb9-bb7e-91901283e8c6.png)
