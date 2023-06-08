@@ -15,7 +15,7 @@ const UserState = (props) => {
   //Route - 1------ to create a new user
   const createUser = async (name, age, password, email) => {
     try {
-      const response = await fetch(`/api/auth/createuser`, {
+      const response = await fetch(`${host}/api/auth/createuser`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -43,7 +43,7 @@ const UserState = (props) => {
   //Route - 2------ to create a new user
   const loginUser = async (password, email) => {
     try {
-      const response = await fetch(`/api/auth/loginuser`, {
+      const response = await fetch(`${host}/api/auth/loginuser`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -70,7 +70,7 @@ const UserState = (props) => {
   //Route - 3------ get all the user detaisl after login
   const getUser = async () => {
     try {
-      const response = await fetch(`/api/auth/getuser`, {
+      const response = await fetch(`${host}/api/auth/getuser`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -91,7 +91,7 @@ const UserState = (props) => {
   //Route - 4 ------ get all the fetures to show in the profile of the user
   const getFeaturesOfProfile = async () => {
     try {
-      const response = await fetch(`/api/auth/getdetailsforprofile`, {
+      const response = await fetch(`${host}/api/auth/getdetailsforprofile`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -109,7 +109,7 @@ const UserState = (props) => {
   //Route - 5 ------ get all the fetures to show in the profile of the user
   const searchUserProfile = async (query) => {
     try {
-      const response = await fetch(`/api/auth/searchForFriends?param=${query}`, {
+      const response = await fetch(`${host}/api/auth/searchForFriends?param=${query}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
