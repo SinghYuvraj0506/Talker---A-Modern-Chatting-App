@@ -12,7 +12,7 @@ const FriendState = (props) => {
   //Route - 1------ to get friend list of a user
   const getAllFriends = async () => {
     try {
-      const response = await fetch(`${host}/api/friend/getfriendlist`, {
+      const response = await fetch(`/api/friend/getfriendlist`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -34,7 +34,7 @@ const FriendState = (props) => {
   //Route - 2------ to change favorite state with a friend
   const changeFavoriteState = async (id) => {
     try {
-      const response = await fetch(`${host}/api/friend/changeFavoriteState/${id}`, {
+      const response = await fetch(`/api/friend/changeFavoriteState/${id}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -55,7 +55,7 @@ const FriendState = (props) => {
   //Route - 2------ to change favorite state with a friend
   const addFriendToFavorite = async (friend_id) => {
     try {
-      const response = await fetch(`${host}/api/friend/addtofriendlist`, {
+      const response = await fetch(`/api/friend/addtofriendlist`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
